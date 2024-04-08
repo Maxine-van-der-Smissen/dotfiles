@@ -24,7 +24,6 @@ Older versions:
 
 | Purpose          | Tool                                                                   |
 | ---------------- | ---------------------------------------------------------------------- |
-| WM               | i3 (i3-gaps)                                                           |
 | bar              | polybar                                                                |
 | App launcher     | rofi                                                                   |
 | Shell            | Bash                                                                   |
@@ -56,7 +55,6 @@ Some things are handled by window class/title or have custom resolutions set, th
 
 Copy/paste icons from these URLs:
 
-- [https://fontawesome.com/v5/cheatsheet](https://fontawesome.com/v5/cheatsheet)
 - [https://fonts.google.com/noto/specimen/Noto+Color+Emoji/glyphs?noto.query=noto+color+emoji](https://fonts.google.com/noto/specimen/Noto+Color+Emoji/glyphs?noto.query=noto+color+emoji)
 
 ## after-install

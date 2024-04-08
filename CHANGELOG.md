@@ -7,7 +7,6 @@ and this project adheres to date versioning.
 
 ## [2022-08-03]
 
-- Fixed i3lock re-using the last image
 - Set up /etc/environment sharing
 - Added in greenclip again
 - added after install and syncLocalSettings.json

@@ -55,23 +55,9 @@ function fileToList {
   echo $(cat "$1" | sed '/^\s*#\([^!]\|$\)/d' | tr +'\n' ' ' | tr -s ' ')
 }
 
-# create and copy files to directory
-function copyToDir {
-  echo "$2" | sed 's%/[^/]*$%/%' | xargs mkdir -p
-  cp "$1" "$2"
-}
-
 # =======================================
 # Installation functions
 # =======================================
-
-# moves all fonts into the fonts directories (overwriting existing files)
-function install_fonts {
-  mkdir -p ~/.fonts
-  mkdir -p ~/.local/share/fonts
-  cp -rf ./fonts/* ~/.fonts
-  cp -rf ./fonts/* ~/.local/share/fonts
-}
 
 # install trizen, a aur helper
 function install_trizen {
@@ -94,7 +80,6 @@ function install_config {
 
   # link directories
   linkDir "$PWD"/wallpapers/images ~/Pictures/wallpapers
-  linkDir "$PWD"/i3 ~/.config/i3
   linkDir "$PWD"/config/notify-osd/notify-osd ~/.notify-osd
   linkDir "$PWD"/config/terminal/xfce4-term ~/.config/xfce4/terminal
   linkDir "$PWD"/config/polybar ~/.config/polybar
@@ -164,7 +149,7 @@ function install_dependencies {
 
 # set up a new ssh key
 function create_ssh_key {
-  ssh-keygen -t ed25519 -C "info@rickvanlieshout.com"
+  ssh-keygen -t ed25519 -C "m.smissen@outlook.com"
   eval "$(ssh-agent -s)"
 }
 
@@ -193,24 +178,6 @@ function intro {
   echo ""
 }
 
-function computer {
-  echo "         /\	"
-  echo "        /  \         	"
-  echo "       /_ %%==O=%      _____________	"
-  echo "          %  - -%     |        '\\\\\\\\\\"
-  echo "     _____c%   > __   |        ' ____|_	"
-  echo "    (_|. .  % \` % .'  |   +    '||::::::	"
-  echo "     ||. ___)%%%%_.'  |        '||_____|	"
-  echo "     ||.(  \ ~ / ,)'  \'_______|_____|	"
-  echo "     || /|  \'/  |\   ___/____|___\___	"
-  echo "    _,,,;!___*_____\_|    _    '  <<<:|	"
-  echo "   /     /|          |_________'___o_o| 	"
-  echo "  /_____/ /	"
-  echo "  |:____|/  \"Boy, I LOVE this stuff\".	"
-  echo ""
-  echo ""
-}
-
 # =======================================
 # Main loop
 # =======================================
@@ -222,7 +189,7 @@ intro
 ask "Do you want to continue installing my config and rice?" Y &&
 
   # Ask for dependency installation
-  if ask "Do you want to install the applications listen in ./dependencies? (might prompt for password)" Y; then
+  if ask "Do you want to install the applications listed in ./dependencies? (might prompt for password)" Y; then
     install_dependencies
   fi
 
@@ -236,37 +203,6 @@ if ask "Do you want to install the config files?" Y; then
   install_config
 fi
 
-# Ask for font installation
-if ask "Do you want to install the fonts?" Y; then
-  install_fonts
-fi
-
-# ask to enable the display manager
-if ask "Do you want to enable sddm?" Y; then
-  sudo systemctl set-default graphical.target
-  sudo systemctl enable sddm.service
-  sudo mkdir -p "/etc/sddm.conf.d/"
-  curl "http://gravatar.com/avatar/$(echo -n "info@rickvanlieshout.com" | md5sum - | cut -d' ' -f1)?s=1024" | sudo tee /usr/share/sddm/faces/mastermindzh.face.icon >/dev/null
-  sudo ln -sf "$PWD"/config/sddm/default.conf /etc/sddm.conf.d/
-fi
-
-clear
-computer
-# ask for pc specific install
-prompt=$(echo $'\n> ' "Please select a specific computer to install or q to finish the install")
-
-PS3="$prompt: "
-select opt in "$PWD/computers"/*; do
-  if ((REPLY == "q")); then
-    break
-
-  elif ((REPLY > 0)); then
-    bash "$opt/install.sh"
-    break
-  else
-    echo "Invalid option. Try another one."
-  fi
-done
 clear
 
-echo "Enjoy using my rice! Do not forget to select i3 in sddm :)"
+echo "Enjoy using my rice! :)"

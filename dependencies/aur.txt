@@ -1,8 +1,4 @@
 visual-studio-code-bin
-i3blocks-contrib
-insync
-ttf-font-awesome-4
-awesome-terminal-fonts-git
 otf-droid-sans-mono-powerline-git
 downgrade
 powerline-rs
@@ -25,3 +21,5 @@ kind
 pulseaudio-ctl
 seafile
 seafile-client
+evdi
+displaylink

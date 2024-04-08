@@ -18,17 +18,12 @@ python-keyring
 libsecret
 seahorse
 reflector
-
-#
-# i3wm
-#
-i3-gaps
-i3lock
-xorg-xrandr
+linux-headers
 
 #
 # Xorg stuff
 #
+xorg-xrandr
 xorg-server
 xorg-xinit
 mesa
@@ -94,7 +89,6 @@ firefox
 flameshot
 gnome-themes-extra
 htop
-i3blocks
 imagemagick
 jq
 keychain
@@ -131,8 +125,4 @@ xfce4-terminal
 xorg-xkill
 
 # fonts
-fontconfig
-noto-fonts-emoji
-otf-font-awesome
-ttf-font-awesome
 ttf-ubuntu-font-family
