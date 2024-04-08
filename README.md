@@ -4,22 +4,6 @@ This repository holds my Linux config files.
 
 ## Mandatory unixporn screenshots
 
-New version as of January 2023:
-
-[![dotfiles](media/dotfiles6.png)](media/dotfiles6.png)
-
-I changed the color of the terminal to match the i3bar:
-
-<img src = "media/dotfiles-small-5.png" width="200">
-
-Older versions:
-
-- [dotfiles5](media/dotfiles5.png)
-- [dotfiles4](https://raw.githubusercontent.com/Mastermindzh/dotfiles/master/media/dotfiles4.jpg)
-- [dotfiles3](media/dotfiles3.png)
-- [dotfiles2](media/dotfiles2.png)
-- [dotfiles](media/dotfiles.png)
-
 ## Tools
 
 | Purpose          | Tool                                                                   |
