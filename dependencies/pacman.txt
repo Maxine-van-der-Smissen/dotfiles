@@ -106,7 +106,6 @@ picom
 polybar
 poppler
 powertop
-pulseaudio-bluetooth
 rofi
 rsync
 scrot
