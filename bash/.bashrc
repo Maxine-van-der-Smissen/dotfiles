@@ -17,6 +17,7 @@ function sourceIfExists() {
 source ~/.alias
 source ~/.custom
 source ~/.variables
+source ~/.git-prompt.sh
 sourceIfExists ~/lib/azure-cli/az.completion
 eval "$(thefuck --alias)"
 
@@ -40,10 +41,12 @@ if hash dotnet 2>/dev/null; then
   export PATH="${PATH}:${DOTNET_ROOT}:~/.dotnet/tools"
 fi
 
-PS1='[\u@\h \W]\$ '
+#PS1='[\u@\h \W]\$ '
 
-if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
-  PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
-fi
+#if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
+#  PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+#fi
+
+PROMPT_COMMAND='__git_ps1 "[\u@\h:\W"] "\\\$ "'
 
 export PATH=$PATH:/home/msmissen/bin
